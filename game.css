@@ -1,0 +1,44 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr); /*define quantas colunas e o tamanho das coluas terá nosso grid a unidade fr e uma coluna que é uma fração repeat e a repetição de colunas será dividida o grid*/
+    gap: 15px; /* permite visualizar os espaços entre os grids*/
+    width: 100%; /* largura*/
+    max-width: 800px; 
+    margin: 100px;
+
+}
+.card{
+  aspect-ratio: 3/4; /* define meu aspector sempre todas as cartas vai ter o mesmo tamanho*/
+  width: 100%;
+  background-color: #333 ;
+  border-radius: 5px;/*define o arredondamento da carta*/
+  position: relative;/*serve para a div mãe delimitar e respeitar o espaço das cartas*/
+  transition: all 500ms ease; /* trabalha junto com card hove tornando o efeito da virada mais suave aplicando tempo para todas as cartas*/
+  transform-style: preserve-3d; /*transforma um objeto 2d em um objeto 3d*/
+}
+.face{
+  width: 100%;
+  height: 100%;
+  position: absolute;/*para a carta ficar uma em cima da outra sem uma img interferir na outra*/
+  background-size: cover;/* serve para fazer a img ficar dentro da grid*/
+  background-position: center;
+  border: 2px solid #39813a;
+  border-radius: 5px;
+}
+.front{
+  
+ transform:rotateY(180deg)/*serve para deixar a carta na posição normal*/
+}
+.back{
+  background-image: url(../img/Img_ftr_rp_2110601-1160x1160-1-300x300.jpg);
+   backface-visibility: hidden;/* serve para ocultar a parte de tras da carta */
+}
+ 
+.reveal-card{
+  transform: rotateY(180deg);/* serve para rotacionar a img quando passar o mause na img*/
+}
+
+.disable-card{
+  filter: saturate(0);
+  opacity: 0,5;
+}
